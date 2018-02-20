@@ -19,17 +19,31 @@ function begin() {
     connection.query("SELECT * FROM products", function(err, results) {
         if (err) throw err;
         inquirer
-        .prompt({
-            name: "question",
-            type: "list",
-            message: "What product would you like to buy?",
-            choices: function() {
-                var array = [];
-                for (i=0; i<results.length; i++) {
-                    array.push(results[i].product_name + " price: " + "($" + results[i].price + ")");  
+        .prompt([
+            {
+                name: "question",
+                type: "list",
+                message: "What product would you like to buy?",
+                choices: function() {
+                    var array = [];
+                    for (i=0; i<results.length; i++) {
+                        array.push(results[i].product_name + " price: " + "($" + results[i].price + ")");  
+                    }
+                    return array;
                 }
-                return array;
+            },
+            {
+                name: "quanitity",
+                type: "input",
+                message: "How many units would you like to purchase?",
+                choices: function() {
+                    var array = [];
+                    for (j=0; j<results.stock_quantity; j++) {
+                        array.push(results[j].stock_quantity)
+                    }
+                    return array;
+                }
             }
-        })    
+        ]);
     });
 }
