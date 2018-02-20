@@ -1,0 +1,23 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Bamazon Store",
+  "main": "bamazonCustomer.js",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dkwazhere/bamazon.git"
+  },
+  "author": "David Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dkwazhere/bamazon/issues"
+  },
+  "homepage": "https://github.com/dkwazhere/bamazon#readme"
+}
