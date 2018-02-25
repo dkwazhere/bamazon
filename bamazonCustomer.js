@@ -18,12 +18,16 @@ connection.connect(function(err) {
 function begin() {
     connection.query("SELECT * FROM products", function(err, results) {
         if (err) throw err;
-        console.log('***********Bamazon shop!***********');
-
+        console.log("                                                ");
+        console.log('****************Bamazon shop!*******************');
+        console.log('************************************************');
+        
         for(i=0;i<results.length;i++){
           console.log(results[i].item_id + ' Product Name: ' + results[i].product_name + ' Price: ' + '$' + results[i].price + '(Quantity left: ' + results[i].stock_quantity + ')')
         }
-        console.log('=================================================');
+        console.log("                                                ");
+        console.log('************************************************');
+        console.log('************************************************');
 
 
 // showing the user which items they can buy
@@ -57,7 +61,7 @@ function begin() {
 
       connection.query('SELECT * FROM Products WHERE product_name = ?', item, function(error, response) {
         if (error) { console.log(error) };
-        
+
         if (quantity <= response[0].stock_quantity){
           connection.query('UPDATE products SET ? WHERE ?', [{
             stock_quantity: response[0].stock_quantity - quantity
